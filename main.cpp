@@ -1,4 +1,4 @@
-//
-// Created by vladislav on 13.05.2020.
-//
 
+int main(){
+    return 0;
+}
