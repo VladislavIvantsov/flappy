@@ -17,14 +17,20 @@ else ()
     endif ()
 endif ()
 
-include_directories(vendor/glad/include/
+include_directories(headers/
+        vendor/glad/include/
         vendor/glfw/include/)
 
 file(GLOB VENDORS_SOURCES vendor/glad/src/glad.c)
 file(GLOB PROJECT_HEADERS headers/*.hpp)
 file(GLOB PROJECT_SOURCES sources/*.cpp)
+file(GLOB PROJECT_SHADERS shaders/*.comp
+        shaders/*.frag
+        shaders/*.geom
+        shaders/*.vert)
 
 source_group("Headers" FILES ${PROJECT_HEADERS})
+source_group("Shaders" FILES ${PROJECT_SHADERS})
 source_group("Sources" FILES ${PROJECT_SOURCES})
 source_group("Vendors" FILES ${VENDORS_SOURCES})
 
@@ -34,7 +40,8 @@ add_definitions(-DGLFW_INCLUDE_NONE
 add_executable(${PROJECT_NAME}
         ${PROJECT_SOURCES}
         ${PROJECT_HEADERS}
-        ${VENDORS_SOURCES})
+        ${VENDORS_SOURCES}
+        ${PROJECT_SHADERS})
 
 target_link_libraries(${PROJECT_NAME}
         glfw
