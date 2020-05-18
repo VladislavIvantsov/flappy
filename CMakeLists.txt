@@ -18,16 +18,16 @@ else ()
 endif ()
 
 include_directories(headers/
+        shaders/
         vendor/glad/include/
+        vendor/soil/include/
         vendor/glfw/include/)
 
-file(GLOB VENDORS_SOURCES vendor/glad/src/glad.c)
+file(GLOB VENDORS_SOURCES vendor/glad/src/glad.c
+        vendor/soil/src/soil.c)
 file(GLOB PROJECT_HEADERS headers/*.hpp)
 file(GLOB PROJECT_SOURCES sources/*.cpp)
-file(GLOB PROJECT_SHADERS shaders/*.comp
-        shaders/*.frag
-        shaders/*.geom
-        shaders/*.vert)
+file(GLOB PROJECT_SHADERS shaders/*.hpp)
 
 source_group("Headers" FILES ${PROJECT_HEADERS})
 source_group("Shaders" FILES ${PROJECT_SHADERS})
