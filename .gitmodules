@@ -6,3 +6,6 @@
 	path = vendor/glad
 	url = https://github.com/Dav1dde/glad.git
 	branch = c
+[submodule "vendor/soil"]
+	path = vendor/soil
+	url = https://github.com/burtonageo/SOIL.git
